@@ -26,7 +26,7 @@ int main () {
 /*
  * Connecting to server and sending message
  */
-	connect (sock, &srv_addr, sizeof (srv_addr));
+	connect (sock, (const struct sockaddr *)&srv_addr, sizeof (srv_addr));
 	from_len = recv (sock, buf, 14, 0);
 	write (1, buf, from_len);
 	send (sock, "I am your client!\n", 19, 0);

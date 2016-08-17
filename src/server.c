@@ -27,7 +27,7 @@ int main()
 	while (1)
 	{
 		from_len = sizeof (clnt_addr);
-		new_sock = accept (sock, &clnt_addr, &from_len);
+		new_sock = accept (sock, (struct sockaddr *)&clnt_addr, &from_len);
 		write (new_sock, "Who are you?\n", 14);
 		from_len = read (new_sock, buf, 19);
 		write (1, buf, from_len);
